@@ -2,26 +2,23 @@ package Funcionario;
 
 public class Principal {
     public static void main(String[] args) {
-        GerenciodoFuncionario gerenciadorFuncionario = new GerenciodoFuncionario();
+    
+        GerenciadorFuncionarios gerenciador = new GerenciadorFuncionarios();
 
-        Assistente f1 = new Assistente("Amaral", 2019010287, 1010 );
+        Gerente gerente = new Gerente("Emson", 2019011368, 1000);
+        Assistente assinante  = new Assistente("nome02", 2019018965, 1100);
 
-        Gerente f2 = new Gerente("Emson", 2019011368, 1010 );
+        gerenciador.AddFuncionario(gerente);
+        gerenciador.AddFuncionario(assinante);
         
-        Vendedor f3 = new Vendedor("Pedro", 2019015897,  1200,0.10);
-        
-        gerenciadorFuncionario.AddFuncionario(f1);
-        gerenciadorFuncionario.AddFuncionario(f2);
-        gerenciadorFuncionario.AddFuncionario(f3);
+        System.out.println("Testando funções 'AddFuncionario' e 'imprimirFuncionario':");
+        System.out.println(gerenciador.imprimirFuncionario(2019011368));
 
-        gerenciadorFuncionario.imprimirTodaLista();
-
-        //gerenciadorFuncionario.removeFuncionario(2019010287);
-        
-        System.out.println(gerenciadorFuncionario.imprimirFuncionario(2019010287));
-
-        double a = gerenciadorFuncionario.folhaSalarial();
-        System.out.println("A folha Salarial dos funcionarios é de "+a);
+        System.out.println("Testando funções 'folhaSalarial', 'imprimirTodos' e 'RemoverFuncionario':");
+        gerenciador.imprimirTodaLista();
+        System.out.println(gerenciador.folhaSalarial());
+        gerenciador.removerFuncionario(2019018965);
+        gerenciador.imprimirTodaLista();
 
     }
 }
